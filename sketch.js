@@ -435,6 +435,15 @@ clearButton.addEventListener("click", () => {
   const ctx = uploadedImageCanvas.getContext("2d");
   ctx.clearRect(0, 0, uploadedImageCanvas.width, uploadedImageCanvas.height);
 
+  // Clear only the result divs inside "results"
+  const resultsDiv = document.getElementById("results");
+  const resultDivs = resultsDiv.querySelectorAll("div");
+  resultDivs.forEach((div) => div.remove());
+
+  // Reset the heading to default
+  resultsDiv.innerHTML =
+    '<h3><span style="color: rgb(142, 86, 255)">✦</span>Results</h3>';
+
   // Hide the "Clear" button
   clearButton.style.display = "none";
 
