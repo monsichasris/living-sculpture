@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Living Sculpture</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/sxv0mlc.css" />
+  </head>
+  <body>
+    <nav>
+      <h1>Living<span style="color: rgb(142, 86, 255)"> ✦ </span>Sculpture</h1>
+      <a id="aboutLink"
+        ><span style="color: rgb(209, 253, 88)">✧</span> About
+        <span style="color: rgb(209, 253, 88)">✧</span></a
+      >
+    </nav>
+    <!-- Modal -->
+    <div id="aboutModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>About</h2>
+        <p>
+          Living Sculpture is a project created as part of the Data as Material
+          class assignment, Spring 2025, at Parsons School of Design. This
+          interactive experience allows users to upload or capture images and
+          analyze poses using ML5.js, matching them to the postures of Buddhist
+          sculptures from The MET Open Access Collection.
+        </p>
+        <p>By <a href="https://monsicha.info/">Monsicha Srisuantang</a></p>
+      </div>
+    </div>
+    <div id="container">
+      <div id="input">
+        <h3>Your<br />Image<br />Here</h3>
+
+        <div id="imagePreview">
+          <img id="uploadedImagePreview" />
+          <canvas id="uploadedImageCanvas"></canvas>
+        </div>
+        <div id="webcamContainer" style="display: none">
+          <button id="captureButton">📸 Capture</button>
+          <video id="webcam" autoplay></video>
+        </div>
+        <div class="input-buttons">
+          <div class="custom-file-input">
+            <label for="uploadImage">Choose File</label>
+            <input type="file" id="uploadImage" />
+          </div>
+          <button id="toggleWebcamButton">Take a photo</button>
+          <button id="clearButton" style="display: none">Clear</button>
+        </div>
+      </div>
+      <div id="results">
+        <h3><span style="color: rgb(142, 86, 255)">✦</span>Results</h3>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+    <script src="https://unpkg.com/ml5@1/dist/ml5.min.js"></script>
+    <script src="sketch.js"></script>
+  </body>
+</html>

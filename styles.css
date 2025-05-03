@@ -1,0 +1,249 @@
+:root {
+  --highlight-color: rgb(209, 253, 88);
+  --secondary-color: rgb(142, 86, 255);
+}
+
+body {
+  margin: 0;
+  font-family: "darkmode-on", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  height: 100%;
+  overflow: hidden;
+}
+
+#container {
+  display: flex;
+  height: 100vh;
+}
+
+#input {
+  height: 96vh;
+  background-color: var(--highlight-color);
+}
+
+#imagePreview {
+  width: 45vw;
+  position: relative;
+  text-align: center;
+  pointer-events: auto;
+  padding: 24px;
+}
+
+#results {
+  flex: 1; /* Allow #results to take up the remaining space */
+  overflow: auto; /* Enable scrolling if content overflows */
+  background-color: black;
+  color: white;
+}
+
+#uploadedImagePreview:not([src]) {
+  display: none;
+}
+
+#uploadedImagePreview,
+#uploadedImageCanvas {
+  max-width: 50vw;
+  height: auto;
+}
+
+#uploadedImagePreview {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+#uploadedImageCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 24px;
+  pointer-events: none;
+}
+
+.result-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.result-canvas {
+  position: absolute;
+  top: 160px;
+  left: 0;
+  pointer-events: none;
+}
+
+img {
+  height: auto;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "blackest", sans-serif;
+  font-style: normal;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 8rem;
+  font-weight: 300;
+  position: absolute;
+  z-index: 1;
+  padding-left: 24px;
+}
+
+a {
+  color: var(--secondary-color);
+}
+a:hover {
+  font-style: italic;
+}
+
+#aboutLink {
+  font-family: "blackest", sans-serif;
+  font-size: 24px;
+  color: white;
+}
+#aboutLink:hover {
+  color: var(--secondary-color);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+#input h3 {
+  z-index: 0;
+  padding-left: 24px;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background-color: black;
+  color: var(--highlight-color);
+}
+
+/* Hide the default file input */
+input[type="file"] {
+  display: none;
+}
+
+.input-buttons {
+  position: fixed; /* Use fixed positioning to keep it in the same place on the screen */
+  bottom: 24px; /* Distance from the bottom of the screen */
+  left: 24px;
+  display: flex; /* Use flexbox to align items horizontally */
+  gap: 10px; /* Add spacing between the buttons */
+  margin-top: 20px; /* Add some space above the buttons */
+}
+
+/* Style the custom label as a button */
+.custom-file-input label,
+#toggleWebcamButton {
+  background-color: var(--highlight-color);
+  color: black;
+  border: 2px solid var(--secondary-color);
+  padding: 16px 40px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 40px;
+  display: inline-block;
+  text-align: center;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Add hover effect */
+.custom-file-input label:hover,
+#toggleWebcamButton:hover {
+  background-color: rgb(180, 240, 80);
+  box-shadow: none;
+}
+
+label,
+button {
+  font-family: blackest-text, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+#webcamContainer {
+  display: none;
+  position: relative;
+  text-align: center;
+  margin-top: 40vh;
+  padding: 24px;
+}
+
+#webcam {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+}
+
+#captureButton,
+#clearButton {
+  padding: 16px;
+  background-color: black;
+  color: var(--highlight-color);
+  border-radius: 40px;
+  cursor: pointer;
+  width: fit-content;
+  text-align: center;
+  border: none;
+}
+
+#captureButton:hover,
+#clearButton:hover {
+  background-color: var(--secondary-color);
+  border: none;
+}
+
+/* Modal container */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 1000; /* Ensure it appears above other elements */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  position: relative;
+  background-color: white;
+  padding: 40px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+  position: absolute; /* Position it relative to the modal-content */
+  top: 10px; /* Distance from the top of the modal */
+  right: 20px; /* Distance from the right of the modal */
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: black;
+  cursor: pointer;
+  background: none; /* Remove any background */
+  border: none; /* Remove any border */
+}
